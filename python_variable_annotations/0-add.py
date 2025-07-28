@@ -1,0 +1,3 @@
+def add(a: float, b: float) -> float:
+    """RETURNS THe sum of two float numbers"""
+    return a + b
