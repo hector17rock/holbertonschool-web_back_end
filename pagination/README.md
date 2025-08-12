@@ -224,6 +224,13 @@ After completing this project, you will understand:
 
 ---
 
+## Author
+
+**Héctor Soto**  
+GitHub: [@hector17rock](https://github.com/hector17rock)
+
+---
+
 **Project Type**: Backend Web Development  
 **Topic**: Pagination  
 **Language**: Python  
