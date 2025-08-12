@@ -42,37 +42,39 @@ class Server:
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
         Return a page of the dataset that is deletion-resilient.
-        
+
         Args:
             index: the current start index of the return page
             page_size: the current page size
-            
+
         Returns:
             Dictionary with index, next_index, page_size, and data
         """
         indexed_data = self.indexed_dataset()
-        
+
         # Verify that index is in a valid range
         max_index = max(indexed_data.keys()) if indexed_data else 0
-        assert index is None or (isinstance(index, int) and 0 <= index <= max_index)
-        
+        assert index is None or (
+            isinstance(index, int) and 0 <= index <= max_index)
+
         # Set default index if None
         if index is None:
             index = 0
-            
+
         # Collect data for the current page
         data = []
         current_index = index
-        
+
         # Find page_size items starting from index, skipping deleted items
-        while len(data) < page_size and current_index < max(indexed_data.keys()) + 1:
+        max_key = max(indexed_data.keys()) + 1
+        while len(data) < page_size and current_index < max_key:
             if current_index in indexed_data:
                 data.append(indexed_data[current_index])
             current_index += 1
-            
-        # Calculate next_index - it should be the next available index after current page
+
+        # Calculate next_index - should be next available index after page
         next_index = current_index
-        
+
         return {
             'index': index,
             'data': data,
