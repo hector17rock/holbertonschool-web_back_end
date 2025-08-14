@@ -1,8 +1,8 @@
-# NoSQL (MongoDB) — Utilities and Exercises
+# NoSQL (MongoDB) — Utilities and Exercises 🗃️🍃
 
 This directory contains a set of MongoDB exercises and helper utilities implemented using both the Mongo shell and Python (with PyMongo). It covers basic CRUD operations, simple aggregations, and log/statistics processing for an Nginx-style access log stored in MongoDB.
 
-## Contents
+## Contents 📂
 
 - Mongo shell snippets (run inside the MongoDB shell or via redirect):
   - `0-list_databases` — list all databases
@@ -24,7 +24,7 @@ This directory contains a set of MongoDB exercises and helper utilities implemen
   - `101-students.py` — `top_students(mongo_collection)` aggregation by average score
   - `102-log_stats.py` — like `12-log_stats.py` plus top 10 IPs
 
-## Prerequisites
+## Prerequisites 🧰
 
 - MongoDB installed and running locally
   - Default connection used by Python scripts: `mongodb://127.0.0.1:27017`
@@ -34,7 +34,7 @@ This directory contains a set of MongoDB exercises and helper utilities implemen
 - Python 3.8+
 - PyMongo: `pip install pymongo`
 
-## Running the Mongo shell snippets
+## Running the Mongo shell snippets ▶️
 
 You can execute each file in the shell in two primary ways:
 
@@ -57,11 +57,11 @@ Notes on individual shell files:
 - `7-delete` uses `deleteMany` to remove all matches.
 - `100-find` demonstrates a case-insensitive regex anchored at the start of the `name` field.
 
-## Python utilities and examples
+## Python utilities and examples 🐍
 
 All Python modules expect an existing `MongoClient` and the specific collection passed in.
 
-### 8-all.py — list_all
+### 8-all.py — list_all 🔎
 Function: `list_all(mongo_collection)`
 - Returns all documents in the provided collection as a Python list. Returns an empty list if none exist.
 
@@ -77,7 +77,7 @@ for doc in list_all(col):
     print(doc)
 ```
 
-### 9-insert_school.py — insert_school
+### 9-insert_school.py — insert_school ➕
 Function: `insert_school(mongo_collection, **kwargs)`
 - Inserts a document composed from the provided keyword arguments.
 - Returns the inserted document’s `_id`.
@@ -94,7 +94,7 @@ new_id = insert_school(col, name='Holberton school', topics=['NoSQL', 'Python'])
 print('Inserted:', new_id)
 ```
 
-### 10-update_topics.py — update_topics
+### 10-update_topics.py — update_topics 🔄
 Function: `update_topics(mongo_collection, name, topics)`
 - Replaces the `topics` array on all documents with the given `name`.
 
@@ -109,7 +109,7 @@ col = client.my_db.school
 update_topics(col, 'Holberton school', ['C', 'Python', 'Databases'])
 ```
 
-### 11-schools_by_topic.py — schools_by_topic
+### 11-schools_by_topic.py — schools_by_topic 🎯
 Function: `schools_by_topic(mongo_collection, topic)`
 - Returns a list of schools that contain the given `topic` in their `topics` array.
 
@@ -125,7 +125,7 @@ for s in schools_by_topic(col, 'Python'):
     print(s)
 ```
 
-### 12-log_stats.py — log stats
+### 12-log_stats.py — log stats 📊
 Script entry point prints:
 - Total number of logs
 - Per-method counts for: GET, POST, PUT, PATCH, DELETE
@@ -141,7 +141,7 @@ Run:
 python3 12-log_stats.py
 ```
 
-### 101-students.py — top_students
+### 101-students.py — top_students 🏆
 Function: `top_students(mongo_collection)`
 - Aggregates and returns students sorted by `averageScore` descending.
 - Expects documents like:
@@ -160,7 +160,7 @@ for s in top_students(col):
     print(s['name'], s['averageScore'])
 ```
 
-### 102-log_stats.py — log stats with top IPs
+### 102-log_stats.py — log stats with top IPs 📈
 Extends `12-log_stats.py` by printing the top 10 IPs with the highest request counts.
 
 Run:
@@ -168,22 +168,22 @@ Run:
 python3 102-log_stats.py
 ```
 
-## Tips and caveats
+## Tips and caveats 💡
 
 - Connection URI: All Python scripts default to `mongodb://127.0.0.1:27017`. Adjust if your MongoDB instance differs.
 - Indexes: For better performance on log stats, consider indexes like `{ method: 1 }`, `{ path: 1 }`, and `{ ip: 1 }` on `logs.nginx`.
 - Shell API versions: Some shell methods in these exercise files (e.g., `count()`) are deprecated in newer MongoDB drivers; they remain valid in the classic shell and are acceptable for this learning context. Prefer `countDocuments()` in production code.
 - Data safety: The examples modify and delete data. Run them against a development database.
 
-## Project structure
+## Project structure 🗂️
 
 - Root of this directory contains all exercises; file names are self-descriptive.
 - No external configuration files are required.
 
-## Author
+## Author ✍️
 
 - Héctor Soto — GitHub: https://github.com/hector17rock
 
-## License
+## License 📄
 
 This repository is for educational purposes. If a specific license applies to your project, add it here.
