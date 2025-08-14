@@ -180,6 +180,31 @@ python3 102-log_stats.py
 - Root of this directory contains all exercises; file names are self-descriptive.
 - No external configuration files are required.
 
+```
+NoSQL/
+├── 0-list_databases            # Mongo shell: list all databases
+├── 1-use_or_create_database    # Mongo shell: select/create my_db
+├── 2-insert                    # Mongo shell: insert one doc into school
+├── 3-all                       # Mongo shell: list all docs in school
+├── 4-match                     # Mongo shell: find by exact name
+├── 5-count                     # Mongo shell: count docs
+├── 6-update                    # Mongo shell: update many (set address)
+├── 7-delete                    # Mongo shell: delete many by name
+├── 8-all.py                    # PyMongo: list_all(mongo_collection)
+├── 9-insert_school.py          # PyMongo: insert_school(...)
+├── 10-update_topics.py         # PyMongo: update_topics(...)
+├── 11-schools_by_topic.py      # PyMongo: schools_by_topic(...)
+├── 12-log_stats.py             # PyMongo: basic nginx log stats
+├── 100-find                    # Mongo shell: regex name startswith Holberton
+├── 101-students.py             # PyMongo: top_students aggregation
+├── 102-log_stats.py            # PyMongo: nginx stats + top 10 IPs
+└── README.md                   # Project documentation
+```
+
+Legend:
+- Mongo shell snippets: plain files without extension (run inside mongo/mongosh) 🧱
+- Python utilities: .py modules using PyMongo 🐍
+
 ## Author ✍️
 
 - Héctor Soto — GitHub: https://github.com/hector17rock
