@@ -1,3 +1,5 @@
+🐍 Python | SQL
+
 # NoSQL (MongoDB) — Utilities and Exercises 🗃️🍃
 
 This directory contains a set of MongoDB exercises and helper utilities implemented using both the Mongo shell and Python (with PyMongo). It covers basic CRUD operations, simple aggregations, and log/statistics processing for an Nginx-style access log stored in MongoDB.
