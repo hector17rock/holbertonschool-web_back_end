@@ -180,6 +180,10 @@ python3 102-log_stats.py
 - Root of this directory contains all exercises; file names are self-descriptive.
 - No external configuration files are required.
 
+## Author
+
+- Héctor Soto — GitHub: https://github.com/hector17rock
+
 ## License
 
 This repository is for educational purposes. If a specific license applies to your project, add it here.
