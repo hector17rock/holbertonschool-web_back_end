@@ -4,28 +4,18 @@
 
 This directory contains a set of MongoDB exercises and helper utilities implemented using both the Mongo shell and Python (with PyMongo). It covers basic CRUD operations, simple aggregations, and log/statistics processing for an Nginx-style access log stored in MongoDB.
 
-## Contents 📂
+## Table of Contents 🧭
 
-- Mongo shell snippets (run inside the MongoDB shell or via redirect):
-  - `0-list_databases` — list all databases
-  - `1-use_or_create_database` — select (or create) `my_db`
-  - `2-insert` — insert a document into `school`
-  - `3-all` — list all documents in `school`
-  - `4-match` — find documents in `school` where `name == "Holberton school"`
-  - `5-count` — count documents in `school`
-  - `6-update` — add/update an `address` field for matching documents
-  - `7-delete` — delete documents by `name`
-  - `100-find` — find documents where `name` starts with "Holberton" (case-insensitive)
+- [Prerequisites](#prerequisites)
+- [Running the Mongo shell snippets](#running)
+- [Python utilities and examples](#python-utilities)
+- [Complete examples](#complete-examples)
+- [Tips and caveats](#tips)
+- [Project structure](#project-structure)
+- [Author](#author)
+- [License](#license)
 
-- Python modules (functions/CLI using PyMongo):
-  - `8-all.py` — `list_all(mongo_collection)`
-  - `9-insert_school.py` — `insert_school(mongo_collection, **kwargs)`
-  - `10-update_topics.py` — `update_topics(mongo_collection, name, topics)`
-  - `11-schools_by_topic.py` — `schools_by_topic(mongo_collection, topic)`
-  - `12-log_stats.py` — print request method counts and status checks
-  - `101-students.py` — `top_students(mongo_collection)` aggregation by average score
-  - `102-log_stats.py` — like `12-log_stats.py` plus top 10 IPs
-
+<a id="prerequisites"></a>
 ## Prerequisites 🧰
 
 - MongoDB installed and running locally
@@ -36,6 +26,7 @@ This directory contains a set of MongoDB exercises and helper utilities implemen
 - Python 3.8+
 - PyMongo: `pip install pymongo`
 
+<a id="running"></a>
 ## Running the Mongo shell snippets ▶️
 
 You can execute each file in the shell in two primary ways:
@@ -59,6 +50,7 @@ Notes on individual shell files:
 - `7-delete` uses `deleteMany` to remove all matches.
 - `100-find` demonstrates a case-insensitive regex anchored at the start of the `name` field.
 
+<a id="python-utilities"></a>
 ## Python utilities and examples 🐍
 
 All Python modules expect an existing `MongoClient` and the specific collection passed in.
@@ -170,6 +162,7 @@ Run:
 python3 102-log_stats.py
 ```
 
+<a id="complete-examples"></a>
 ## Complete examples 📘
 
 Below are end-to-end examples you can run to try every task in this directory.
@@ -307,6 +300,7 @@ python3 12-log_stats.py
 python3 102-log_stats.py
 ```
 
+<a id="tips"></a>
 ## Tips and caveats 💡
 
 - Connection URI: All Python scripts default to `mongodb://127.0.0.1:27017`. Adjust if your MongoDB instance differs.
@@ -314,6 +308,7 @@ python3 102-log_stats.py
 - Shell API versions: Some shell methods in these exercise files (e.g., `count()`) are deprecated in newer MongoDB drivers; they remain valid in the classic shell and are acceptable for this learning context. Prefer `countDocuments()` in production code.
 - Data safety: The examples modify and delete data. Run them against a development database.
 
+<a id="project-structure"></a>
 ## Project structure 🗂️
 
 - Root of this directory contains all exercises; file names are self-descriptive.
@@ -344,10 +339,12 @@ Legend:
 - Mongo shell snippets: plain files without extension (run inside mongo/mongosh) 🧱
 - Python utilities: .py modules using PyMongo 🐍
 
+<a id="author"></a>
 ## Author ✍️
 
 - Héctor Soto — GitHub: https://github.com/hector17rock
 
+<a id="license"></a>
 ## License 📄
 
 This repository is for educational purposes. If a specific license applies to your project, add it here.
