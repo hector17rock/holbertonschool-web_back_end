@@ -168,6 +168,143 @@ Run:
 python3 102-log_stats.py
 ```
 
+## Complete examples 📘
+
+Below are end-to-end examples you can run to try every task in this directory.
+
+### Seed sample data (optional but recommended)
+
+Run in a shell (mongosh) to create sample documents:
+```
+# Select/create database
+mongosh --eval "load('1-use_or_create_database')"
+
+# Seed 'school' collection
+mongosh --eval "db.school.deleteMany({})" \
+        --eval "db.school.insertMany([
+  { name: 'Holberton school', topics: ['C', 'Python'] },
+  { name: 'Holberton School SF', topics: ['Databases', 'NoSQL'] },
+  { name: 'Other School', topics: ['Math'] }
+])"
+
+# Seed 'students' collection
+mongosh --eval "db.students.deleteMany({})" \
+        --eval "db.students.insertMany([
+  { name: 'John', topics: [ { title: 'Algo', score: 80 }, { title: 'DB', score: 90 } ] },
+  { name: 'Jane', topics: [ { title: 'Algo', score: 95 }, { title: 'DB', score: 85 } ] },
+  { name: 'Max',  topics: [ { title: 'Algo', score: 70 }, { title: 'DB', score: 75 } ] }
+])"
+
+# Seed 'logs.nginx' collection
+mongosh --eval "use logs" \
+        --eval "db.nginx.deleteMany({})" \
+        --eval "db.nginx.insertMany([
+  { method: 'GET',    path: '/',        ip: '1.1.1.1' },
+  { method: 'GET',    path: '/status',  ip: '1.1.1.1' },
+  { method: 'POST',   path: '/submit',  ip: '2.2.2.2' },
+  { method: 'GET',    path: '/about',   ip: '1.1.1.1' },
+  { method: 'DELETE', path: '/item/1',  ip: '3.3.3.3' },
+  { method: 'GET',    path: '/status',  ip: '2.2.2.2' },
+  { method: 'PUT',    path: '/item/2',  ip: '4.4.4.4' },
+  { method: 'GET',    path: '/',        ip: '5.5.5.5' },
+  { method: 'PATCH',  path: '/item/3',  ip: '1.1.1.1' },
+  { method: 'GET',    path: '/status',  ip: '1.1.1.1' }
+])"
+```
+
+### Mongo shell tasks (0, 1, 2, 3, 4, 5, 6, 7, 100)
+
+Run each file via redirection or load. Examples with mongosh:
+```
+# 0 — list databases
+mongosh < 0-list_databases
+
+# 1 — use or create my_db
+mongosh < 1-use_or_create_database
+
+# 2 — insert one doc into school (in my_db)
+mongosh < 2-insert
+
+# 3 — list all documents in school
+mongosh < 3-all
+
+# 4 — find docs with exact name
+mongosh < 4-match
+
+# 5 — count docs in school (classic shell count)
+mongosh < 5-count
+
+# 6 — update many (set address)
+mongosh < 6-update
+
+# 7 — delete many by name
+mongosh < 7-delete
+
+# 100 — regex find name starts with "Holberton"
+mongosh < 100-find
+```
+Expected outputs will vary depending on your data; after seeding, `3-all` should show three docs, `4-match` should show at least one, and `5-count` should reflect the total.
+
+### Python tasks (8, 9, 10, 11)
+
+Example script using 8–11 with the `school` collection:
+```
+python3 - <<'PY'
+from pymongo import MongoClient
+from importlib import import_module
+
+client = MongoClient('mongodb://127.0.0.1:27017')
+col = client.my_db.school
+
+list_all = import_module('8-all').list_all
+insert_school = import_module('9-insert_school').insert_school
+update_topics = import_module('10-update_topics').update_topics
+schools_by_topic = import_module('11-schools_by_topic').schools_by_topic
+
+print('All schools:')
+for d in list_all(col):
+    print(d)
+
+print('\nInsert a new school:')
+_id = insert_school(col, name='Holberton School NYC', topics=['Python','NoSQL'])
+print('Inserted _id:', _id)
+
+print('\nUpdate topics for Holberton school:')
+update_topics(col, 'Holberton school', ['C','Python','Databases'])
+for d in col.find({ 'name': 'Holberton school' }):
+    print(d)
+
+print('\nSchools by topic=Python:')
+for d in schools_by_topic(col, 'Python'):
+    print(d)
+PY
+```
+
+### Python task (101) — top students
+```
+python3 - <<'PY'
+from pymongo import MongoClient
+from importlib import import_module
+
+client = MongoClient('mongodb://127.0.0.1:27017')
+col = client.my_db.students
+
+top_students = import_module('101-students').top_students
+
+for s in top_students(col):
+    print(s['name'], s['averageScore'])
+PY
+```
+
+### Python tasks (12 and 102) — log stats
+```
+# Basic stats
+python3 12-log_stats.py
+
+# Stats + top 10 IPs
+python3 102-log_stats.py
+```
+
 ## Tips and caveats 💡
 
 - Connection URI: All Python scripts default to `mongodb://127.0.0.1:27017`. Adjust if your MongoDB instance differs.
