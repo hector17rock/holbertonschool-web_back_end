@@ -44,6 +44,21 @@ Implements a helper function `index_range(page, page_size)` that calculates the 
   - Uses 1-based page numbering
   - Example: `index_range(1, 7)` returns `(0, 7)`
 
+Task:
+- Given a page (1-indexed) and page_size, compute the inclusive start index and exclusive end index to slice a list.
+
+Implementation example:
+```python
+from 0_simple_helper_function import index_range
+
+# Page 2, size 5 -> items [5..9]
+start, end = index_range(2, 5)
+print(start, end)  # 5 10
+
+# First page, size 7 -> items [0..6]
+print(index_range(1, 7))  # (0, 7)
+```
+
 ### 📚 Task 1: Simple Pagination
 **File:** `1-simple_pagination.py`
 
@@ -58,6 +73,28 @@ Implements a `Server` class with basic pagination functionality.
 **Methods:**
 - 📋 `dataset()` → `List[List]`: Returns cached dataset (excluding header)
 - 📄 `get_page(page=1, page_size=10)` → `List[List]`: Returns paginated data
+
+Task:
+- Build a server that reads the CSV once, caches it, and returns slices for the requested page with assertions on inputs.
+
+Implementation example:
+```python
+from 1_simple_pagination import Server
+
+server = Server()
+# Get first 3 rows
+rows = server.get_page(page=1, page_size=3)
+print(len(rows), rows[0])
+
+# Invalid inputs raise AssertionError
+try:
+    server.get_page(0, 10)
+except AssertionError:
+    print('Invalid page rejected')
+
+# Out-of-range page returns []
+print(server.get_page(9999, 10))
+```
 
 ### 🔗 Task 2: Hypermedia Pagination
 **File:** `2-hypermedia_pagination.py`
@@ -84,6 +121,19 @@ Extends the simple pagination with hypermedia metadata following REST API best p
 }
 ```
 
+Task:
+- Expose the paginated data along with hypermedia controls so clients can navigate pages without computing indices.
+
+Implementation example:
+```python
+from 2_hypermedia_pagination import Server
+
+server = Server()
+resp = server.get_hyper(page=2, page_size=5)
+print(resp['page'], resp['page_size'])
+print('prev:', resp['prev_page'], 'next:', resp['next_page'], 'total:', resp['total_pages'])
+```
+
 ### 🛡️ Task 3: Deletion-Resilient Hypermedia Pagination
 **File:** `3-hypermedia_del_pagination.py`
 
@@ -106,6 +156,24 @@ Implements pagination that remains consistent even when items are deleted from t
     'page_size': 10,        # Requested page size
     'next_index': 13        # Next index to continue from
 }
+```
+
+Task:
+- Serve pages by index while tolerating deletions between requests; always return the next starting index clients should use.
+
+Implementation example:
+```python
+from 3_hypermedia_del_pagination import Server
+
+server = Server()
+first = server.get_hyper_index(index=3, page_size=2)
+print(first)
+
+# Simulate a deletion between requests (for demo only)
+server._Server__indexed_dataset.pop(first['index'], None)
+
+next_page = server.get_hyper_index(index=first['next_index'], page_size=2)
+print(next_page)
 ```
 
 ## 💡 Usage Examples
