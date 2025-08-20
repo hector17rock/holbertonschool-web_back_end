@@ -2,8 +2,10 @@
   "name": "es6_basic",
   "version": "1.0.0",
   "description": "LOADING...",
+  "type": "module",
   "main": "index.js",
   "scripts": {
+    "dev": "node 0-main.js",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "lint": "eslint .",
