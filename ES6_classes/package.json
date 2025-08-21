@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest --testRunner=jest-circus/runner --env=node",
+    "test": "jest",
     "lint": "eslint .",
     "dev": "node"
   },
