@@ -1,8 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "test": "jest",
-    "test:fallback": "node test-runner.js",
+    "test": "node test-runner.js",
+    "test:jest": "jest",
     "lint": "eslint .",
     "dev": "node"
   },

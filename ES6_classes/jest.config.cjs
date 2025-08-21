@@ -1,6 +1,13 @@
 module.exports = {
   testEnvironment: 'node',
-  transform: {
-    '^.+\\.js$': 'babel-jest'
-  }
+  preset: null,
+  transform: {},
+  testMatch: ['**/*.test.js'],
+  moduleFileExtensions: ['js'],
+  collectCoverageFrom: [
+    '**/*.js',
+    '!**/node_modules/**',
+    '!**/coverage/**',
+    '!**/*.config.js'
+  ]
 };
