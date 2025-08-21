@@ -1,0 +1,21 @@
+{
+  "name": "es6_basic",
+  "version": "1.0.0",
+  "description": "LOADING...",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "babel-jest": "^30.0.5",
+    "eslint": "^9.33.0",
+    "jest": "^30.0.5"
+  }
+}
