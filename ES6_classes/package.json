@@ -2,6 +2,7 @@
   "type": "module",
   "scripts": {
     "test": "jest",
+    "test:fallback": "node test-runner.js",
     "lint": "eslint .",
     "dev": "node"
   },
