@@ -1,11 +1,10 @@
 export default {
   testEnvironment: 'node',
   transform: {
-    '^.+\.js$': 'babel-jest',
+    '^.+\.js$': ['babel-jest', {
+      presets: [['@babel/preset-env', { targets: { node: 'current' } }]]
+    }]
   },
   moduleFileExtensions: ['js'],
-  testMatch: ['**/*.test.js'],
-  transformIgnorePatterns: [
-    'node_modules/(?!(.*\.mjs$))',
-  ],
+  testMatch: ['**/*.test.js']
 };
