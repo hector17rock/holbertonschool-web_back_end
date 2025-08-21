@@ -1,8 +1,11 @@
 export default {
   testEnvironment: 'node',
   transform: {
-    '^.+\.js$': ['babel-jest', { configFile: './babel.config.cjs' }],
+    '^.+\.js$': 'babel-jest',
   },
   moduleFileExtensions: ['js'],
   testMatch: ['**/*.test.js'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(.*\.mjs$))',
+  ],
 };
