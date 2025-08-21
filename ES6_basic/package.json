@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "node",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",

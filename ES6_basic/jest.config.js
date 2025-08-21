@@ -1,14 +1,7 @@
-export default {
-  transform: {
-    "^.+\\.js$": [
-      "babel-jest",
-      {
-        // Use the project's Babel config
-      }
-    ]
-  },
+module.exports = {
   testEnvironment: "node",
-  extensionsToTreatAsEsm: [".js"],
-  moduleFileExtensions: ["js", "json"],
+  transform: {
+    "^.+\\.js$": "babel-jest"
+  }
 };
 
