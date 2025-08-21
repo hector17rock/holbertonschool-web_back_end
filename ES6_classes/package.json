@@ -1,0 +1,23 @@
+{
+  "name": "es6_classes",
+  "version": "1.0.0",
+  "description": "LOADING...",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint .",
+    "dev": "node"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "babel-jest": "^30.0.5",
+    "eslint": "^9.33.0",
+    "jest": "^30.0.5"
+  }
+}
+
