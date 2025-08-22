@@ -26,6 +26,8 @@
     "test:nuclear": "NODE_OPTIONS='--experimental-vm-modules' node --input-type=module --eval \"import('./node_modules/jest/bin/jest.js').then(m => process.argv = ['node', 'jest', '--testEnvironment=node', '--no-coverage', ...process.argv.slice(2)] && m.default()).catch(console.error)\"",
     "test:direct": "NODE_OPTIONS='--experimental-vm-modules' node ./node_modules/jest/bin/jest.js --testEnvironment=node --no-coverage",
     "test:script": "node run-jest-direct.js",
+    "run:all": "npm run dev 1-main.js && npm run dev 2-main.js && npm run dev 3-main.js && npm run dev 4-main.js && npm run dev 5-main.js && npm run dev 6-main.js && npm run dev 7-main.js && npm run dev 8-main.js && npm run dev 9-main.js && npm run dev 10-main.js",
+    "test:all": "npm test && npm run run:all",
     "full-test": "./node_modules/.bin/eslint [0-9]*.js && NODE_OPTIONS='--experimental-vm-modules' jest"
   },
   "keywords": [],
