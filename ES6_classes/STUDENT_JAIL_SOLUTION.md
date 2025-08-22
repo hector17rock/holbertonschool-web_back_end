@@ -44,6 +44,9 @@ npm run test:student-jail 7-airport.toStringTag.test.js
 
 # HolbertonClass tests (27 tests)
 npm run test:student-jail 8-hbtn_class.default.test.js
+
+# Hoisting tests (26 tests)
+npm run test:student-jail 9-hoisting.length.test.js
 ```
 
 ### **All Tests**:
@@ -104,7 +107,10 @@ npm run test:student-jail 7-airport.toStringTag.test.js
 # Test 8-hbtn_class.default.test.js (27 tests)
 npm run test:student-jail 8-hbtn_class.default.test.js
 
-# Test all files (76 tests total)
+# Test 9-hoisting.length.test.js (26 tests)
+npm run test:student-jail 9-hoisting.length.test.js
+
+# Test all files (102 tests total)
 npm run test:student-jail
 ```
 
@@ -112,4 +118,4 @@ npm run test:student-jail
 - Never use `npm test FILENAME` in student_jail - it will fail
 - Always use the specialized commands above
 - The configurations are optimized specifically for restricted environments
-- All 76 tests across 5 files should pass with these commands
+- All 102 tests across 6 files should pass with these commands
