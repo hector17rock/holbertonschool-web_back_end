@@ -6,5 +6,8 @@ export default {
   // Pre-resolve the runner so it works even when local node_modules are not installed (e.g., in graders)
   testRunner: require.resolve('jest-circus/runner'),
   testMatch: ['**/*.test.js'],
+  transform: {
+    '^.+\\.[jt]sx?$': 'babel-jest',
+  },
   passWithNoTests: true,
 };
