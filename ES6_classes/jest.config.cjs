@@ -4,14 +4,16 @@ module.exports = {
   verbose: true,
   collectCoverage: false,
   testTimeout: 30000,
-  testMatch: [
-    "**/__tests__/**/*.js",
-    "**/?(*.)+(spec|test).js"
-  ],
-  runner: 'jest-runner',
-  testRunner: 'jest-circus/runner',
+  testMatch: ['**/__tests__/**/*.js', '**/?(*.)+(spec|test).js'],
+  // Remove explicit runner to let Jest auto-detect
   setupFilesAfterEnv: [],
   moduleFileExtensions: ['js', 'json', 'jsx', 'ts', 'tsx', 'node'],
   testPathIgnorePatterns: ['/node_modules/'],
-  watchPathIgnorePatterns: ['/node_modules/']
+  watchPathIgnorePatterns: ['/node_modules/'],
+  // Additional options for better environment compatibility
+  detectOpenHandles: true,
+  forceExit: true,
+  clearMocks: true,
+  resetMocks: true,
+  restoreMocks: true,
 };
