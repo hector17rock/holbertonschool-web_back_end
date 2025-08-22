@@ -1,13 +1,23 @@
 module.exports = {
   testEnvironment: 'node',
   preset: null,
-  transform: {},
+  transform: {
+    '^.+\.js$': 'babel-jest'
+  },
   testMatch: ['**/*.test.js'],
   moduleFileExtensions: ['js'],
+  extensionsToTreatAsEsm: ['.js'],
+  globals: {
+    'ts-jest': {
+      useESM: true
+    }
+  },
   collectCoverageFrom: [
     '**/*.js',
     '!**/node_modules/**',
     '!**/coverage/**',
-    '!**/*.config.js'
+    '!**/*.config.*',
+    '!**/*-main.js',
+    '!**/test-runner.js'
   ]
 };

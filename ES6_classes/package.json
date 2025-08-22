@@ -1,8 +1,10 @@
 {
   "type": "module",
   "scripts": {
-    "test": "node test-runner.js",
+    "test": "node 0-classroom-simple.test.js",
     "test:jest": "jest",
+    "test:comprehensive": "node test-runner.js",
+    "test:classroom": "node 0-classroom-simple.test.js",
     "lint": "eslint .",
     "dev": "node"
   },
