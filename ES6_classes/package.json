@@ -31,7 +31,9 @@
     "test:restricted": "NODE_OPTIONS='--experimental-vm-modules' jest --config=jest.config.restricted.cjs",
     "test:fallback": "NODE_OPTIONS='--experimental-vm-modules' jest --testEnvironment=node --no-coverage",
     "test:ultimate": "npm run test:restricted || npm run test:fallback || npm run test:bare",
-    "full-test": "./node_modules/.bin/eslint [0-9]*.js && NODE_OPTIONS='--experimental-vm-modules' jest"
+    "full-test": "./node_modules/.bin/eslint [0-9]*.js && NODE_OPTIONS='--experimental-vm-modules' jest",
+    "test:comprehensive": "npm run test && npm run test:restricted && npm run test:minimal",
+    "test:verify": "echo 'Testing main Jest...' && npm test && echo 'Testing restricted config...' && npm run test:restricted && echo 'Testing minimal config...' && npm run test:minimal && echo 'All Jest configurations verified!'"
   },
   "keywords": [],
   "author": "",
@@ -59,5 +61,18 @@
     "prettier": "^3.6.2",
     "standard": "^17.1.2"
   },
-  "jest": {}
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "^(\\.{1,2}/.*)\\.js$": "$1"
+    },
+    "testTimeout": 10000,
+    "verbose": true,
+    "collectCoverage": false,
+    "testPathIgnorePatterns": ["/node_modules/"],
+    "transformIgnorePatterns": []
+  }
 }
