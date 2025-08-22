@@ -14,6 +14,12 @@ npm run test:bare your-test-file.js
 ```
 **Direct command-line approach, bypasses all config files**
 
+### For Maximum Compatibility (Nuclear Option)
+```bash
+node run-jest-direct.js your-test-file.js
+```
+**Direct Jest invocation script, bypasses ALL configuration**
+
 ### For Development
 ```bash
 npm test your-test-file.js

@@ -23,6 +23,9 @@
     "test:bare": "NODE_OPTIONS='--experimental-vm-modules' npx jest --no-coverage --testEnvironment=node",
     "test:force": "NODE_OPTIONS='--experimental-vm-modules' npx jest --no-coverage --testEnvironment=node --clearCache",
     "test:smart": "npm test || npm run test:minimal || npm run test:bare || npm run test:force",
+    "test:nuclear": "NODE_OPTIONS='--experimental-vm-modules' node --input-type=module --eval \"import('./node_modules/jest/bin/jest.js').then(m => process.argv = ['node', 'jest', '--testEnvironment=node', '--no-coverage', ...process.argv.slice(2)] && m.default()).catch(console.error)\"",
+    "test:direct": "NODE_OPTIONS='--experimental-vm-modules' node ./node_modules/jest/bin/jest.js --testEnvironment=node --no-coverage",
+    "test:script": "node run-jest-direct.js",
     "full-test": "./node_modules/.bin/eslint [0-9]*.js && NODE_OPTIONS='--experimental-vm-modules' jest"
   },
   "keywords": [],
@@ -51,7 +54,5 @@
     "prettier": "^3.6.2",
     "standard": "^17.1.2"
   },
-  "jest": {
-    "testEnvironment": "node"
-  }
+  "jest": {}
 }
