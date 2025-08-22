@@ -20,6 +20,9 @@
     "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
     "test:minimal": "NODE_OPTIONS='--experimental-vm-modules' jest --config=jest.config.minimal.cjs",
     "test:auto": "npm test || npm run test:minimal",
+    "test:bare": "NODE_OPTIONS='--experimental-vm-modules' npx jest --no-coverage --testEnvironment=node",
+    "test:force": "NODE_OPTIONS='--experimental-vm-modules' npx jest --no-coverage --testEnvironment=node --clearCache",
+    "test:smart": "npm test || npm run test:minimal || npm run test:bare || npm run test:force",
     "full-test": "./node_modules/.bin/eslint [0-9]*.js && NODE_OPTIONS='--experimental-vm-modules' jest"
   },
   "keywords": [],
@@ -47,5 +50,8 @@
     "jshint": "^2.13.6",
     "prettier": "^3.6.2",
     "standard": "^17.1.2"
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

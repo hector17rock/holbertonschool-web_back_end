@@ -2,19 +2,29 @@
 
 ## Available Test Configurations
 
-This project includes multiple Jest configurations to ensure compatibility across different environments:
+This project includes multiple Jest configurations and commands to ensure compatibility across different environments:
 
-### 1. Default Configuration (`jest.config.cjs`)
+### 1. Package.json Configuration (Default)
 **Used by:** `npm test`
-- Comprehensive configuration with verbose output
-- Auto-detects test runner for maximum compatibility 
-- Includes environment-specific optimizations
+- Ultra-minimal configuration embedded in package.json
+- Only specifies Node.js environment
+- Maximum compatibility across environments
 
-### 2. Minimal Configuration (`jest.config.minimal.cjs`)
+### 2. Minimal External Configuration
 **Used by:** `npm run test:minimal`
-- Bare minimum configuration for problematic environments
-- Fallback option when default config fails
-- Most likely to work in restrictive environments
+- External configuration file for specific cases
+- Fallback option when package.json config conflicts
+
+### 3. Bare Command-line Configuration
+**Used by:** `npm run test:bare`
+- Bypasses all configuration files entirely
+- Specifies options directly via command line
+- Most reliable for restricted environments
+
+### 4. Force Configuration
+**Used by:** `npm run test:force`
+- Clears Jest cache and uses command-line options
+- Last resort for environments with caching issues
 
 ## Troubleshooting
 
@@ -46,13 +56,26 @@ If you see "Multiple configurations found", remove or rename conflicting files:
 ## Environment-Specific Issues
 
 ### Student Jail / Restricted Environments
-- Use `npm run test:minimal` for maximum compatibility
-- The minimal config avoids complex runner specifications
-- Works with basic Jest installations
+**Recommended approaches in order:**
+1. `npm run test:bare` - Direct command-line approach
+2. `npm run test:force` - With cache clearing
+3. `npm run test:smart` - Tries all approaches automatically
+4. `npm run test:minimal` - External minimal config
 
 ### Development Environment
-- Use `npm test` for full-featured testing
-- Includes verbose output and debugging features
+- Use `npm test` for normal testing
+- Use `npm run test:smart` for automatic fallback handling
+
+## Smart Testing Commands
+
+### `npm run test:smart`
+Automatically tries multiple approaches in order:
+1. Default configuration
+2. Minimal external configuration  
+3. Bare command-line configuration
+4. Force configuration with cache clearing
+
+This is the most reliable command for unknown environments.
 
 ## Configuration Details
 
