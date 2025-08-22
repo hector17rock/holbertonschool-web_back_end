@@ -30,14 +30,17 @@ NODE_OPTIONS='--experimental-vm-modules' npx jest --testEnvironment=node --no-co
 
 ### **Individual Files**:
 ```bash
-# ClassRoom tests
+# ClassRoom tests (12 tests)
 npm run test:student-jail 0-classroom.test.js
 
-# Building tests  
+# Building tests (7 tests)
 npm run test:student-jail 5-building_constructor.test.js
 
-# SkyHighBuilding tests
+# SkyHighBuilding tests (12 tests)
 npm run test:student-jail 6-sky_high.test.js
+
+# Airport tests (18 tests)
+npm run test:student-jail 7-airport.toStringTag.test.js
 ```
 
 ### **All Tests**:
@@ -83,16 +86,19 @@ Tests:       12 passed, 12 total
 For quick use in student_jail environment:
 
 ```bash
-# Test 0-classroom.test.js
+# Test 0-classroom.test.js (12 tests)
 npm run test:student-jail 0-classroom.test.js
 
-# Test 5-building_constructor.test.js  
+# Test 5-building_constructor.test.js (7 tests)
 npm run test:student-jail 5-building_constructor.test.js
 
-# Test 6-sky_high.test.js
+# Test 6-sky_high.test.js (12 tests)
 npm run test:student-jail 6-sky_high.test.js
 
-# Test all files
+# Test 7-airport.toStringTag.test.js (18 tests)
+npm run test:student-jail 7-airport.toStringTag.test.js
+
+# Test all files (49 tests total)
 npm run test:student-jail
 ```
 
@@ -100,4 +106,4 @@ npm run test:student-jail
 - Never use `npm test FILENAME` in student_jail - it will fail
 - Always use the specialized commands above
 - The configurations are optimized specifically for restricted environments
-- All 31 tests across 3 files should pass with these commands
+- All 49 tests across 4 files should pass with these commands
