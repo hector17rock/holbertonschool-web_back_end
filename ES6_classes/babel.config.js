@@ -6,9 +6,8 @@ export default {
         targets: {
           node: 'current',
         },
-        // Ensure Jest runs transformed files as CommonJS
-        modules: 'commonjs',
       },
     ],
   ],
 };
+
