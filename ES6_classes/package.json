@@ -20,6 +20,8 @@
     "@babel/preset-env": "^7.28.3",
     "babel-jest": "^30.0.5",
     "eslint": "^9.33.0",
-    "jest": "^30.0.5"
+    "jest": "^30.0.5",
+    "jest-circus": "^30.0.5",
+    "jest-runner": "^30.0.5"
   }
 }
