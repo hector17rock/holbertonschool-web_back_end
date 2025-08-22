@@ -3,12 +3,6 @@
 import HolbertonCourse from './2-hbtn_course.js';
 
 // Simple test assertions
-function assert(condition, message) {
-  if (!condition) {
-    throw new Error(`Test failed: ${message}`);
-  }
-}
-
 function assertEquals(actual, expected, message) {
   if (actual !== expected) {
     throw new Error(`Test failed: ${message}. Expected: ${expected}, Got: ${actual}`);
