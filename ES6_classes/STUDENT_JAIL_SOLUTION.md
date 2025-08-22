@@ -47,6 +47,9 @@ npm run test:student-jail 8-hbtn_class.default.test.js
 
 # Hoisting tests (26 tests)
 npm run test:student-jail 9-hoisting.length.test.js
+
+# Car clone tests (21 tests)
+npm run test:student-jail 10-car.clone.test.js
 ```
 
 ### **All Tests**:
@@ -110,7 +113,10 @@ npm run test:student-jail 8-hbtn_class.default.test.js
 # Test 9-hoisting.length.test.js (26 tests)
 npm run test:student-jail 9-hoisting.length.test.js
 
-# Test all files (102 tests total)
+# Test 10-car.clone.test.js (21 tests)
+npm run test:student-jail 10-car.clone.test.js
+
+# Test all files (123 tests total)
 npm run test:student-jail
 ```
 
@@ -118,4 +124,4 @@ npm run test:student-jail
 - Never use `npm test FILENAME` in student_jail - it will fail
 - Always use the specialized commands above
 - The configurations are optimized specifically for restricted environments
-- All 102 tests across 6 files should pass with these commands
+- All 123 tests across 7 files should pass with these commands
