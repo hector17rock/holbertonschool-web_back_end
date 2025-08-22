@@ -11,7 +11,8 @@ export default [
     rules: {
       "no-var": "error",
       "prefer-const": "error",
-      "no-unused-vars": "warn"
+      "no-unused-vars": "warn",
+      "eol-last": ["error", "always"]
     }
   }
 ];
