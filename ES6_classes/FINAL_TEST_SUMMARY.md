@@ -2,9 +2,9 @@
 
 ## 🎯 **Current Status: FULLY WORKING**
 
-All Jest configuration issues have been resolved for the student_jail environment. **All 49 tests across 4 test files are now passing.**
+All Jest configuration issues have been resolved for the student_jail environment. **All 76 tests across 5 test files are now passing.**
 
-## 📊 **Test Files Summary**
+## 📁 **Test Files Summary**
 
 | Test File | Tests | Status | Purpose |
 |-----------|-------|---------|---------|
@@ -12,7 +12,8 @@ All Jest configuration issues have been resolved for the student_jail environmen
 | `5-building_constructor.test.js` | 7 | ✅ PASS | Building abstract class |
 | `6-sky_high.test.js` | 12 | ✅ PASS | SkyHighBuilding extends Building |
 | `7-airport.toStringTag.test.js` | 18 | ✅ PASS | Airport toString functionality |
-| **TOTAL** | **49** | **✅ PASS** | **Complete ES6 class coverage** |
+| `8-hbtn_class.default.test.js` | 27 | ✅ PASS | HolbertonClass type coercion |
+| **TOTAL** | **76** | **✅ PASS** | **Complete ES6 class coverage** |
 
 ## 🚨 **Student Jail Environment Solutions**
 
@@ -66,11 +67,14 @@ npm run test:student-jail 6-sky_high.test.js
 
 # Airport (18 tests)
 npm run test:student-jail 7-airport.toStringTag.test.js
+
+# HolbertonClass (27 tests)
+npm run test:student-jail 8-hbtn_class.default.test.js
 ```
 
 ### **All Tests**:
 ```bash
-npm run test:student-jail  # All 49 tests
+npm run test:student-jail  # All 76 tests
 ```
 
 ## 📋 **Test Coverage Details**
@@ -100,26 +104,35 @@ npm run test:student-jail  # All 49 tests
 - String coercion handling
 - Edge case management
 
+### **HolbertonClass Tests (8-hbtn_class.default.test.js)**:
+- Constructor validation
+- Type coercion behavior (valueOf/toString)
+- Number and string coercion
+- Mathematical operations
+- Comparison operations
+- Real-world usage patterns
+
 ## 🎉 **Verification Results**
 
 **Latest Test Run:**
 ```
+PASS  ./8-hbtn_class.default.test.js
 PASS  ./7-airport.toStringTag.test.js
 PASS  ./6-sky_high.test.js  
 PASS  ./0-classroom.test.js
 PASS  ./5-building_constructor.test.js
 
-Test Suites: 4 passed, 4 total
-Tests:       49 passed, 49 total
+Test Suites: 5 passed, 5 total
+Tests:       76 passed, 76 total
 Snapshots:   0 total
-Time:        0.316 s
+Time:        0.381 s
 ```
 
 ## 🏆 **Final Confirmation**
 
 **✅ Jest package is fully verified and optimized**  
 **✅ All configurations work in student_jail environment**  
-**✅ All 49 tests pass consistently**  
+**✅ All 76 tests pass consistently**  
 **✅ Multiple fallback options available**  
 **✅ Comprehensive documentation provided**
 
