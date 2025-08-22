@@ -33,7 +33,9 @@
     "test:ultimate": "npm run test:restricted || npm run test:fallback || npm run test:bare",
     "full-test": "./node_modules/.bin/eslint [0-9]*.js && NODE_OPTIONS='--experimental-vm-modules' jest",
     "test:comprehensive": "npm run test && npm run test:restricted && npm run test:minimal",
-    "test:verify": "echo 'Testing main Jest...' && npm test && echo 'Testing restricted config...' && npm run test:restricted && echo 'Testing minimal config...' && npm run test:minimal && echo 'All Jest configurations verified!'"
+    "test:verify": "echo 'Testing main Jest...' && npm test && echo 'Testing restricted config...' && npm run test:restricted && echo 'Testing minimal config...' && npm run test:minimal && echo 'All Jest configurations verified!'",
+    "test:student-jail": "NODE_OPTIONS='--experimental-vm-modules' jest --config=jest.config.student-jail.cjs",
+    "test:emergency": "NODE_OPTIONS='--experimental-vm-modules' npx jest --testEnvironment=node --no-coverage --maxWorkers=1 --forceExit --cache=false"
   },
   "keywords": [],
   "author": "",

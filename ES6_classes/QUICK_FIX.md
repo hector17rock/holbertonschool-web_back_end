@@ -7,22 +7,30 @@ Module /home/student_jail/student_repo/ES6_classes/node_modules/jest-circus/buil
 
 ## The Solution
 
-Instead of:
+❌ **DON'T USE** (This will fail):
 ```bash
+npm test 0-classroom.test.js
 npm test 5-building_constructor.test.js
 npm test 6-sky_high.test.js
 ```
 
-Use these commands:
+✅ **USE THESE** (These work in student_jail):
 ```bash
-npm run test:restricted 5-building_constructor.test.js
-npm run test:restricted 6-sky_high.test.js
+# Primary solution - Student jail optimized
+npm run test:student-jail 0-classroom.test.js
+npm run test:student-jail 5-building_constructor.test.js
+npm run test:student-jail 6-sky_high.test.js
+
+# Alternative solution - Emergency fallback
+npm run test:emergency 0-classroom.test.js
+npm run test:emergency 5-building_constructor.test.js
+npm run test:emergency 6-sky_high.test.js
 ```
 
-Or these direct commands:
+**Direct commands if npm scripts don't work:**
 ```bash
-NODE_OPTIONS='--experimental-vm-modules' npx jest --config=jest.config.restricted.cjs 5-building_constructor.test.js
-NODE_OPTIONS='--experimental-vm-modules' npx jest --config=jest.config.restricted.cjs 6-sky_high.test.js
+NODE_OPTIONS='--experimental-vm-modules' jest --config=jest.config.student-jail.cjs 0-classroom.test.js
+NODE_OPTIONS='--experimental-vm-modules' npx jest --testEnvironment=node --no-coverage --maxWorkers=1 --forceExit --cache=false 0-classroom.test.js
 ```
 
 ## Why This Works
