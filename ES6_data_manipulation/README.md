@@ -555,7 +555,8 @@ const results = [...filterMap(hugeArray, filter, transform)].slice(0, 10);
 
 ## 👨‍💻 Author
 
-**Hector**
+**Héctor Soto**
+- GitHub: [@hector17rock](https://github.com/hector17rock)
 - Holberton School Student
 - Backend Web Development Specialization
 - Focus: JavaScript, Node.js, Data Structures, Algorithms
