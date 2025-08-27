@@ -1,8 +1,8 @@
 {
-  "name": "es6_classes",
+  "name": "es6_promise",
   "version": "1.0.0",
-  "type": "module",
-  "main": "0-classroom.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint",
     "check-lint": "lint [0-9]*.js",
@@ -13,7 +13,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@babel/core": "^7.28.3",
     "@babel/node": "^7.28.0",
