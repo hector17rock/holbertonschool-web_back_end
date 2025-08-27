@@ -52,6 +52,7 @@ ES6_basic/
 │   ├── 1-block-scoped.js      # Block scoping demonstration
 │   ├── 2-arrow.js             # Arrow functions
 │   ├── 3-default-parameter.js # Default function parameters
+d
 │   ├── 4-rest-parameter.js    # Rest parameters
 │   ├── 5-spread-operator.js   # Spread operator
 │   ├── 6-string-interpolation.js # Template literals
