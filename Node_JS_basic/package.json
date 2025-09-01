@@ -2,7 +2,7 @@
   "name": "node_js_basic",
   "version": "1.0.0",
   "description": "Holberton School Node.js Basic exercises and projects",
-  "main": "0-console.js",
+  "main": "0-console.cjs",
   "type": "module",
   "scripts": {
     "lint": "./node_modules/.bin/eslint",
@@ -10,7 +10,7 @@
     "dev": "npx babel-node",
     "test": "jest",
     "full-test": "./node_modules/.bin/eslint [0-9]*.js && jest",
-    "start": "node 0-console.js",
+    "start": "node 0-console.cjs",
     "dev-server": "nodemon --exec babel-node"
   },
   "keywords": ["nodejs", "javascript", "holberton", "backend"],
