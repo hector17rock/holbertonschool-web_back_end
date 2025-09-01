@@ -8,7 +8,7 @@ export default [
         window: 'readonly',
         document: 'readonly',
         console: 'readonly',
-        
+
         // Node.js globals
         process: 'readonly',
         Buffer: 'readonly',
@@ -18,7 +18,7 @@ export default [
         module: 'readonly',
         require: 'readonly',
         exports: 'readonly',
-        
+
         // Jest globals
         describe: 'readonly',
         it: 'readonly',
@@ -37,25 +37,25 @@ export default [
       'no-undef': 'error',
       'no-redeclare': 'error',
       'no-unreachable': 'error',
-      
+
       // Code style rules
       'indent': ['error', 2],
       'quotes': ['error', 'single'],
       'semi': ['error', 'always'],
       'no-trailing-spaces': 'error',
       'eol-last': 'error',
-      
+
       // Best practices
       'no-console': 'off',
       'prefer-const': 'error',
       'no-var': 'error',
-      
+
       // ES6+ specific
       'arrow-spacing': 'error',
       'object-shorthand': 'error',
       'prefer-arrow-callback': 'error',
       'prefer-template': 'error',
-      
+
       // Class-specific rules (relevant for ES6 classes)
       'no-dupe-class-members': 'error',
       'no-useless-constructor': 'error'
