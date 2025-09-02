@@ -1,19 +1,21 @@
 // 1-stdin.js
 
-// Display the welcome message immediately
-console.log('Welcome to Holberton School, what is your name?');
+console.log("Welcome to Holberton School, what is your name?");
 
-// Enable stdin to read input from the user
+let inputData = "";
+
+// Read input
 process.stdin.setEncoding('utf8');
 
-// Listen for data input
-process.stdin.on('data', (input) => {
-  // Remove any trailing newline characters
-  const name = input.trim();
-  console.log(`Your name is: ${name}`);
+process.stdin.on('data', (chunk) => {
+  inputData += chunk;
 });
 
-// Listen for the end of input (Ctrl+D or piped input)
+// When input ends, process the data
 process.stdin.on('end', () => {
-  console.log('This important software is now closing');
+  const name = inputData.trim(); // Remove newline
+  if (name) {
+    console.log(`Your name is: ${name}`);
+  }
+  console.log("This important software is now closing");
 });
