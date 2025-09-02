@@ -1,6 +1,7 @@
 {
   "name": "node_js_basic",
   "version": "1.0.0",
+  "type": "module",
   "description": "Holberton School NodeJS Basics",
   "main": "0-main.js",
   "scripts": {

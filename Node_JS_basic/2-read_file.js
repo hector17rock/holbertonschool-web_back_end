@@ -1,5 +1,5 @@
 // 2-read_file.js
-const fs = require('fs');
+import fs from 'fs';
 
 function countStudents(path) {
   let data;
@@ -39,5 +39,5 @@ function countStudents(path) {
   }
 }
 
-module.exports = countStudents;
+export default countStudents;
 

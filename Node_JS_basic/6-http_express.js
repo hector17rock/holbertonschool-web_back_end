@@ -1,5 +1,5 @@
 // 6-http_express.js
-const express = require('express');
+import express from 'express';
 
 const app = express();
 
@@ -9,5 +9,5 @@ app.get('/', (req, res) => {
 
 app.listen(1245);
 
-module.exports = app;
+export default app;
 

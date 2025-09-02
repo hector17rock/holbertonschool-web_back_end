@@ -1,6 +1,6 @@
 // 7-http_express.js
-const express = require('express');
-const fs = require('fs');
+import express from 'express';
+import fs from 'fs';
 
 const DB_PATH = process.argv[2];
 
@@ -72,5 +72,5 @@ app.get('/students', (req, res) => {
 
 app.listen(1245);
 
-module.exports = app;
+export default app;
 

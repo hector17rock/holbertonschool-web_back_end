@@ -1,5 +1,5 @@
 // 4-http.js
-const http = require('http');
+import http from 'http';
 
 const app = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -9,5 +9,5 @@ const app = http.createServer((req, res) => {
 
 app.listen(1245);
 
-module.exports = app;
+export default app;
 

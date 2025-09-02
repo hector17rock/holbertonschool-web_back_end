@@ -1,5 +1,5 @@
 // 3-read_file_async.js
-const fs = require('fs');
+import fs from 'fs';
 
 function countStudents(path) {
   return new Promise((resolve, reject) => {
@@ -44,4 +44,4 @@ function countStudents(path) {
   });
 }
 
-module.exports = countStudents;
+export default countStudents;

@@ -1,6 +1,6 @@
 // 5-http.js
-const http = require('http');
-const fs = require('fs');
+import http from 'http';
+import fs from 'fs';
 
 const DB_PATH = process.argv[2];
 
@@ -82,5 +82,5 @@ const app = http.createServer((req, res) => {
 
 app.listen(1245);
 
-module.exports = app;
+export default app;
 
