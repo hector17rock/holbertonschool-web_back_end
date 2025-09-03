@@ -17,9 +17,10 @@ process.stdin.on('data', (chunk) => {
     const line = buffer.slice(0, idx).replace(/\r$/, '');
     console.log(`Your name is: ${line}`);
     printed = true;
-    console.log('This important software is now closing');
-    // Stop reading further input
-    process.stdin.pause();
   }
+});
+
+process.stdin.on('end', () => {
+  console.log('This important software is now closing');
 });
 
