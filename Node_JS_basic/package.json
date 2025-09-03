@@ -4,16 +4,16 @@
   "description": "Holberton NodeJS Basics",
   "type": "module",
   "main": "index.js",
-"scripts": {
+  "scripts": {
     "lint": "eslint .",
     "test": "mocha --require @babel/register --exit"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.22.0",
-    "@babel/preset-env": "^7.22.0",
-    "@babel/register": "^7.22.0",
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/register": "^7.28.3",
     "chai": "^4.3.7",
     "mocha": "^10.2.0"
   }
