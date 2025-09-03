@@ -1,7 +1,8 @@
 {
   "name": "node_js_basics",
   "version": "1.0.0",
-  "description": "Holberton School - NodeJS Basics",
+  "description": "Holberton NodeJS Basics",
+  "type": "module",
   "main": "index.js",
 "scripts": {
     "lint": "eslint .",
