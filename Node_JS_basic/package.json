@@ -6,10 +6,13 @@
   "scripts": {
     "test": "mocha --require @babel/register --exit"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.28.3",
-    "@babel/preset-env": "^7.28.3",
-    "@babel/register": "^7.28.3",
+    "@babel/core": "^7.24.0",
+    "@babel/preset-env": "^7.24.0",
+    "@babel/register": "^7.24.0",
     "mocha": "^10.2.0"
   }
 }
