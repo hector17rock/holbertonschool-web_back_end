@@ -1,20 +1,25 @@
 // 1-stdin.js
-import readline from 'readline';
 
-console.log("Welcome to Holberton School, what is your name?");
+// Print welcome message immediately
+console.log('Welcome to Holberton School, what is your name?');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false
+// Use raw stdin to be compatible with both ESM and CJS environments
+process.stdin.setEncoding('utf8');
+
+let printed = false;
+let buffer = '';
+
+process.stdin.on('data', (chunk) => {
+  if (printed) return;
+  buffer += chunk;
+  const idx = buffer.indexOf('\n');
+  if (idx !== -1) {
+    const line = buffer.slice(0, idx).replace(/\r$/, '');
+    console.log(`Your name is: ${line}`);
+    printed = true;
+    console.log('This important software is now closing');
+    // Stop reading further input
+    process.stdin.pause();
+  }
 });
 
-// Read one line of input
-rl.on('line', (name) => {
-  console.log(`Your name is: ${name}`);
-  rl.close(); // Close after reading one line
-});
-
-rl.on('close', () => {
-  console.log("This important software is now closing");
-});
