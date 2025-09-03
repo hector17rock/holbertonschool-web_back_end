@@ -1,24 +1,12 @@
-// 1-stdin.js
+process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
-import readline from 'readline';
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false,
+process.stdin.on('data', (data) => {
+  const name = data.toString().trim();
+  process.stdout.write(`Your name is: ${name}\n`);
 });
 
-let name = '';
-
-console.log('Welcome to Holberton School, what is your name?');
-
-rl.on('line', (line) => {
-  name = line;
-process.stdout.write(`Your name is: ${name}\r`);
-  rl.close();
-});
-
-rl.on('close', () => {
-  console.log('This important software is now closing');
+// When the input stream ends (CTRL+D or pipe ends), show closing message
+process.stdin.on('end', () => {
+  process.stdout.write('This important software is now closing\n');
 });
 

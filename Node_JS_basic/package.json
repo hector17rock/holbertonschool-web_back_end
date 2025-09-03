@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Holberton School - NodeJS Basics",
   "main": "index.js",
-  "scripts": {
+"scripts": {
+    "lint": "eslint .",
     "test": "mocha --require @babel/register --exit"
   },
   "author": "",
