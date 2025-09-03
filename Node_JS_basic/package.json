@@ -2,19 +2,14 @@
   "name": "node_js_basics",
   "version": "1.0.0",
   "description": "Holberton NodeJS Basics",
-  "type": "module",
-  "main": "index.js",
+  "main": "1-stdin.js",
   "scripts": {
-    "lint": "eslint .",
     "test": "mocha --require @babel/register --exit"
   },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.28.3",
-    "@babel/preset-env": "^7.28.3",
-    "@babel/register": "^7.28.3",
-    "chai": "^4.3.7",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@babel/register": "^7.23.0",
     "mocha": "^10.2.0"
   }
 }
