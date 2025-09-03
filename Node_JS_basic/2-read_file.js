@@ -1,5 +1,5 @@
-// 2-read_file.js
-import fs from 'fs';
+// 2-read_file.js (CommonJS)
+const fs = require('fs');
 
 function countStudents(path) {
   let data;
@@ -9,9 +9,10 @@ function countStudents(path) {
     throw new Error('Cannot load the database'); // exact message
   }
 
+  // Split lines and ignore empties (incl. trailing empty line)
   const lines = data
     .split('\n')
-    .filter((line) => line.trim() !== ''); // ignore empty lines
+    .filter((line) => line.trim() !== '');
 
   if (lines.length === 0) {
     console.log('Number of students: 0');
@@ -31,13 +32,14 @@ function countStudents(path) {
     groups[field].push(first);
   }
 
+  // Total number of students is the number of data rows
   console.log(`Number of students: ${lines.length}`);
-  for (const field of Object.keys(groups).sort()) {
+  for (const field of Object.keys(groups)) {
     console.log(
       `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(', ')}`
     );
   }
 }
 
-export default countStudents;
+module.exports = countStudents;
 
