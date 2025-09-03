@@ -1,4 +1,4 @@
-import fs from 'fs';
+const fs = require('fs');
 
 function countStudents(path) {
   let data;
@@ -42,5 +42,5 @@ function countStudents(path) {
   }
 }
 
-export default countStudents;
+module.exports = countStudents;
 
