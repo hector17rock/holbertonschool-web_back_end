@@ -14,7 +14,7 @@ console.log('Welcome to Holberton School, what is your name?');
 
 rl.on('line', (line) => {
   name = line;
-  console.log(`Your name is: ${name}`);
+process.stdout.write(`Your name is: ${name}\r`);
   rl.close();
 });
 
