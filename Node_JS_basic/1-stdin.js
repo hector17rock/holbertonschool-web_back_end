@@ -21,6 +21,11 @@ process.stdin.on('data', (chunk) => {
 });
 
 process.stdin.on('end', () => {
+  if (!printed) {
+    // Handle case where input ended without a trailing newline
+    const line = buffer.replace(/\r$/, '');
+    console.log(`Your name is: ${line}`);
+  }
   console.log('This important software is now closing');
 });
 
