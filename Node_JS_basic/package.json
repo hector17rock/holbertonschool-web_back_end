@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "Holberton NodeJS Basics projects setup",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "jest",
+    "test": "./node_modules/mocha/bin/mocha --require babel-register --exit",
     "lint": "./node_modules/.bin/eslint"
   },
   "dependencies": {
