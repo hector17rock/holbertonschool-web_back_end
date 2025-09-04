@@ -1,5 +1,4 @@
-import { strict as assert } from 'assert';
-import { spawn } from 'child_process';
+const { spawn } = require('child_process');
 
 describe('1-stdin.js', () => {
   it('should display welcome message and handle input', () => new Promise((done) => {
@@ -18,9 +17,9 @@ describe('1-stdin.js', () => {
     child.on('close', () => {
       global.setTimeout(() => {
         global.setTimeout(() => {
-          assert(output.includes('Welcome to Holberton School, what is your name?'));
-          assert(output.includes('Your name is: John'));
-          assert(output.includes('This important software is now closing'));
+          expect(output).toContain('Welcome to Holberton School, what is your name?');
+          expect(output).toContain('Your name is: John');
+          expect(output).toContain('This important software is now closing');
           done();
         }, 200);
       }, 100);
@@ -38,8 +37,8 @@ describe('1-stdin.js', () => {
     child.on('close', () => {
       global.setTimeout(() => {
         global.setTimeout(() => {
-          assert(output.includes('Your name is: Alice'));
-          assert(output.includes('This important software is now closing'));
+          expect(output).toContain('Your name is: Alice');
+          expect(output).toContain('This important software is now closing');
           done();
         }, 200);
       }, 100);
