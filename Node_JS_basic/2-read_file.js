@@ -21,18 +21,20 @@ function countStudents(path) {
 
   const studentsByField = {};
 
-  for (let i = 1; i < lines.length; i++) {
+  for (let i = 1; i < lines.length; i += 1) {
     const line = lines[i];
     const values = line.split(',');
-    if (values.length < headers.length) continue;
+    if (values.length < headers.length) {
+      // Skip incomplete lines
+    } else {
+      const field = values[fieldIndex].trim();
+      const firstName = values[firstNameIndex].trim();
 
-    const field = values[fieldIndex].trim();
-    const firstName = values[firstNameIndex].trim();
-
-    if (!studentsByField[field]) {
-      studentsByField[field] = [];
+      if (!studentsByField[field]) {
+        studentsByField[field] = [];
+      }
+      studentsByField[field].push(firstName);
     }
-    studentsByField[field].push(firstName);
   }
 
   const totalStudents = Object.values(studentsByField).reduce((acc, arr) => acc + arr.length, 0);
