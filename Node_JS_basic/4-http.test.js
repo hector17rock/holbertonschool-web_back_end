@@ -1,28 +1,31 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
+const request = require('supertest');
 const app = require('./4-http');
 
-chai.use(chaiHttp);
-const { expect } = chai;
-
 describe('HTTP Server', () => {
-  it('should return "Hello Holberton School!" for root path', (done) => {
-    chai.request(app)
-      .get('/')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.text).to.equal('Hello Holberton School!');
-        done();
-      });
+  afterAll(() => {
+    // Close the server after tests to prevent Jest from hanging
+    app.close();
   });
 
-  it('should return "Hello Holberton School!" for any path', (done) => {
-    chai.request(app)
-      .get('/any_endpoint')
-      .end((err, res) => {
-        expect(res).to.have.status(200);
-        expect(res.text).to.equal('Hello Holberton School!');
-        done();
-      });
+  it('should return "Hello Holberton School!" for root path', async () => {
+    const res = await request(app).get('/');
+    expect(res.statusCode).toBe(200);
+    expect(res.text).toBe('Hello Holberton School!');
+  });
+
+  it('should return "Hello Holberton School!" for any path', async () => {
+    const res = await request(app).get('/any_endpoint');
+    expect(res.statusCode).toBe(200);
+    expect(res.text).toBe('Hello Holberton School!');
+  });
+
+  it('should return "Hello Holberton School!" for multiple different endpoints', async () => {
+    const endpoints = ['/users', '/api/data', '/random-path'];
+    
+    for (const endpoint of endpoints) {
+      const res = await request(app).get(endpoint);
+      expect(res.statusCode).toBe(200);
+      expect(res.text).toBe('Hello Holberton School!');
+    }
   });
 });
