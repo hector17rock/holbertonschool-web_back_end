@@ -37,7 +37,7 @@ function buildStudentsReport(path) {
       const output = [`Number of students: ${lines.length}`];
       for (const field of Object.keys(groups).sort()) {
         output.push(
-          `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(', ')}`
+          `Number of students in ${field}: ${groups[field].length}. List: ${groups[field].join(', ')}`,
         );
       }
 
@@ -83,4 +83,3 @@ const app = http.createServer((req, res) => {
 app.listen(1245);
 
 export default app;
-

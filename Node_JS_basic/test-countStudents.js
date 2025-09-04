@@ -1,7 +1,7 @@
 const countStudents = require('./2-read_file');
 
 // Test cases
-test('No database file', () => {
+test('no database file', () => {
   expect(() => countStudents('nope.csv')).toThrow('Cannot load the database');
 });
 

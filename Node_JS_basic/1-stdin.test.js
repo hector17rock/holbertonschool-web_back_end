@@ -2,7 +2,7 @@ import { strict as assert } from 'assert';
 import { spawn } from 'child_process';
 
 describe('1-stdin.js', () => {
-  it('should display welcome message and handle input', (done) => {
+  it('should display welcome message and handle input', () => new Promise((done) => {
     const child = spawn('node', ['1-stdin.js']);
 
     let output = '';
@@ -25,9 +25,9 @@ describe('1-stdin.js', () => {
         }, 200);
       }, 100);
     });
-  });
+  }));
 
-  it('should work with piped input', (done) => {
+  it('should work with piped input', () => new Promise((done) => {
     const child = spawn('bash', ['-c', 'echo "Alice" | node 1-stdin.js']);
 
     let output = '';
@@ -44,5 +44,5 @@ describe('1-stdin.js', () => {
         }, 200);
       }, 100);
     });
-  });
+  }));
 });
