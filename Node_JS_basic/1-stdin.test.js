@@ -9,8 +9,9 @@ describe('1-stdin.js', () => {
     child.stdout.on('data', (data) => {
       output += data.toString();
       // Automatically provide input after the prompt
-      if (output.includes('what is your name?')) {
+      if (output.includes('Welcome to Holberton School, what is your name?')) {
         child.stdin.write('John\n');
+        child.stdin.end();
       }
     });
 
