@@ -2,28 +2,39 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 const displayMessage = require('./0-console');
 
-describe('0-console.js', () => {
-  it('should call console.log with the provided message', () => {
-    const consoleLogSpy = sinon.spy(console, 'log');
-    const message = 'Hello NodeJS!';
+describe('Task 0: Console Message Display', () => {
+  let consoleLogSpy;
 
-    displayMessage(message);
+  beforeEach(() => {
+    consoleLogSpy = sinon.spy(console, 'log');
+  });
 
-    expect(consoleLogSpy.calledOnce).to.be.true;
-    expect(consoleLogSpy.calledWith(message)).to.be.true;
-
+  afterEach(() => {
     consoleLogSpy.restore();
   });
 
-  it('should work with different messages', () => {
-    const consoleLogSpy = sinon.spy(console, 'log');
-    const message = 'Test message';
-
-    displayMessage(message);
-
+  it('should display the correct message on STDOUT', () => {
+    const testMessage = 'Hello NodeJS!';
+    
+    displayMessage(testMessage);
+    
     expect(consoleLogSpy.calledOnce).to.be.true;
-    expect(consoleLogSpy.calledWith(message)).to.be.true;
+    expect(consoleLogSpy.calledWith(testMessage)).to.be.true;
+  });
 
-    consoleLogSpy.restore();
+  it('should execute console.log exactly once', () => {
+    const testMessage = 'Test message for console';
+    
+    displayMessage(testMessage);
+    
+    expect(consoleLogSpy.callCount).to.equal(1);
+  });
+
+  it('should pass the exact message parameter to console.log', () => {
+    const exactMessage = 'Exact message test';
+    
+    displayMessage(exactMessage);
+    
+    expect(consoleLogSpy.firstCall.args[0]).to.equal(exactMessage);
   });
 });
