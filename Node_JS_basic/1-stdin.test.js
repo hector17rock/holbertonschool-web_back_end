@@ -1,4 +1,5 @@
 const { spawn } = require('child_process');
+const { expect } = require('chai');
 
 describe('1-stdin.js', () => {
   it('should display welcome message and handle input', () => new Promise((done) => {
@@ -17,9 +18,9 @@ describe('1-stdin.js', () => {
     child.on('close', () => {
       global.setTimeout(() => {
         global.setTimeout(() => {
-          expect(output).toContain('Welcome to Holberton School, what is your name?');
-          expect(output).toContain('Your name is: John');
-          expect(output).toContain('This important software is now closing');
+          expect(output).to.contain('Welcome to Holberton School, what is your name?');
+          expect(output).to.contain('Your name is: John');
+          expect(output).to.contain('This important software is now closing');
           done();
         }, 200);
       }, 100);
@@ -37,8 +38,8 @@ describe('1-stdin.js', () => {
     child.on('close', () => {
       global.setTimeout(() => {
         global.setTimeout(() => {
-          expect(output).toContain('Your name is: Alice');
-          expect(output).toContain('This important software is now closing');
+          expect(output).to.contain('Your name is: Alice');
+          expect(output).to.contain('This important software is now closing');
           done();
         }, 200);
       }, 100);

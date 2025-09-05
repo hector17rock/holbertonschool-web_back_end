@@ -3,7 +3,7 @@ module.exports = [
     files: ['**/*.js'],
     languageOptions: {
       ecmaVersion: 2018,
-      sourceType: 'commonjs',
+      sourceType: 'module',
       globals: {
         process: 'readonly',
         console: 'readonly',
@@ -28,7 +28,7 @@ module.exports = [
     files: ['**/*.test.js', '**/*test.js'],
     languageOptions: {
       ecmaVersion: 2018,
-      sourceType: 'commonjs',
+      sourceType: 'module',
       globals: {
         process: 'readonly',
         console: 'readonly',
