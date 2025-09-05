@@ -5,9 +5,6 @@ module.exports = {
     node: true,
     mocha: true,
   },
-  extends: [
-    'airbnb-base',
-  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -17,26 +14,19 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'max-classes-per-file': 'off',
-    'no-underscore-dangle': 'off',
     'no-console': 'off',
-    'no-shadow': 'off',
-    'no-restricted-syntax': [
-      'error',
-      'LabeledStatement',
-      'WithStatement',
-    ],
+    'no-unused-vars': 'error',
+    'no-undef': 'error',
+    'semi': ['error', 'always'],
+    'quotes': ['error', 'single'],
+    'no-trailing-spaces': 'error',
+    'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
+    'indent': ['error', 2],
+    'comma-dangle': ['error', 'always-multiline'],
   },
-  overrides:[
-    {
-      files: ['*.js'],
-      excludedFiles: 'babel.config.js',
-    },
+  overrides: [
     {
       files: ['*.test.js'],
-      env: {
-        mocha: true,
-      },
       globals: {
         describe: 'readonly',
         it: 'readonly',
