@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
 
-app.get('/students', async (req, res) => {
+app.get('/students', (req, res) => {
   const databasePath = process.argv[2];
 
   if (!databasePath) {
@@ -59,12 +59,13 @@ app.get('/students', async (req, res) => {
     return;
   }
 
-  try {
-    const studentsData = await countStudents(databasePath);
-    res.send(`This is the list of our students\n${studentsData}`);
-  } catch (error) {
-    res.send(`This is the list of our students\n${error.message}`);
-  }
+  countStudents(databasePath)
+    .then((studentsData) => {
+      res.send(`This is the list of our students\n${studentsData}`);
+    })
+    .catch((error) => {
+      res.send(`This is the list of our students\n${error.message}`);
+    });
 });
 
 app.listen(1245, () => {
