@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint",
     "check-lint": "./node_modules/.bin/eslint [0-9]*.js",
-    "test": "node run-mocha.js",
+    "test": "./node_modules/mocha/bin/mocha --require babel-register --exit",
     "test-0-console": "./node_modules/mocha/bin/mocha --require babel-register --exit 0-console.test.js",
     "test-0-simple": "node test-task-0.js",
     "test-1": "./node_modules/mocha/bin/mocha --require babel-register --exit 1-stdin.test.js",
