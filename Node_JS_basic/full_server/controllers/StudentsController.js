@@ -1,4 +1,4 @@
-import { readDatabase } from '../utils.js';
+import { readDatabase } from '../utils';
 
 class StudentsController {
   static async getAllStudents(request, response) {
@@ -9,7 +9,9 @@ class StudentsController {
       let output = 'This is the list of our students\n';
 
       // Sort fields alphabetically (case insensitive)
-      const sortedFields = Object.keys(fields).sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+      const sortedFields = Object.keys(fields).sort((a, b) => (
+        a.toLowerCase().localeCompare(b.toLowerCase())
+      ));
 
       sortedFields.forEach((field) => {
         const studentList = fields[field].join(', ');
@@ -33,7 +35,7 @@ class StudentsController {
 
     try {
       const fields = await readDatabase(databasePath);
-      
+
       if (fields[major]) {
         const studentList = fields[major].join(', ');
         response.status(200).send(`List: ${studentList}`);
